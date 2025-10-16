@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playwright Test Reports</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 60px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #718096;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .report-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .report-card.allure {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .report-card.playwright {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .report-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .report-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .report-description {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .info-section {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        .info-section h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .info-section ul {
+            list-style: none;
+            color: #4a5568;
+        }
+
+        .info-section li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .info-section li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #48bb78;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .reports-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 Test Reports Dashboard</h1>
+        <p class="subtitle">Automated Playwright Test Results</p>
+        
+        <div class="reports-grid">
+            <a href="./allure-report/" class="report-card allure">
+                <div class="report-icon">📊</div>
+                <div class="report-title">Allure Report</div>
+                <div class="report-description">
+                    Comprehensive test execution report with historical trends, 
+                    detailed logs, and beautiful visualizations.
+                </div>
+                <span class="badge">View Report →</span>
+            </a>
+
+            <a href="./playwright-report/" class="report-card playwright">
+                <div class="report-icon">🎬</div>
+                <div class="report-title">Playwright Report</div>
+                <div class="report-description">
+                    Interactive HTML report with trace viewer, 
+                    network logs, and step-by-step test execution details.
+                </div>
+                <span class="badge">View Report →</span>
+            </a>
+        </div>
+
+        <div class="info-section">
+            <h3>📋 Report Features</h3>
+            <ul>
+                <li>Test execution results (passed/failed/skipped)</li>
+                <li>Detailed step-by-step logs and traces</li>
+                <li>Screenshots captured on failure</li>
+                <li>Execution time and performance metrics</li>
+                <li>Historical trends (Allure only)</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Last updated: <strong id="lastUpdated"></strong></p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/ibhatt089/playwright_teams_allure_rp_poc" 
+                   style="color: #667eea; text-decoration: none;">
+                    View on GitHub →
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Display last updated time
+        document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html>
+
