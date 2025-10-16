@@ -123,14 +123,14 @@ jobs:
         id: timestampid
         # this will store current time with UTC in outputs.timestamp (eg of value: 20231028_233147Z)
         run: echo "timestamp=$(date --utc +%Y%m%d_%H%M%SZ)" >> "$GITHUB_OUTPUT" 
-        
+
       - name: Publish Playwright Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./playwright-report
+          publish_dir: playwright-report
           destination_dir: ${{ steps.timestampid.outputs.timestamp }}
           keep_files: true
 
@@ -160,3 +160,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
+
