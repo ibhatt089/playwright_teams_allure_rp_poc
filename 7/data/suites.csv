@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Oct 16 04:05:09 GMT 2025","Thu Oct 16 04:05:10 GMT 2025","1499","chromium","forgotPassword.spec.ts","Forgot Password Flow","","","Forgot Password - Valid Email",""
+"passed","Thu Oct 16 04:05:13 GMT 2025","Thu Oct 16 04:05:16 GMT 2025","2771","chromium","login.spec.ts","Multiple Login Tests","","","should log in and validate post-login details for user: test_user2@villageIT.com",""
+"passed","Thu Oct 16 04:05:11 GMT 2025","Thu Oct 16 04:05:12 GMT 2025","735","chromium","forgotPassword.spec.ts","Forgot Password Flow","","","Forgot Password - Back to Login",""
+"passed","Thu Oct 16 04:05:16 GMT 2025","Thu Oct 16 04:05:19 GMT 2025","2715","chromium","login.spec.ts","Multiple Login Tests","","","should log in and validate post-login details for user: test_user3@villageIT.com",""
+"passed","Thu Oct 16 04:05:09 GMT 2025","Thu Oct 16 04:05:12 GMT 2025","3176","chromium","login.spec.ts","Multiple Login Tests","","","should log in and validate post-login details for user: test_user1@villageIT.com",""
+"passed","Thu Oct 16 04:05:09 GMT 2025","Thu Oct 16 04:05:11 GMT 2025","1714","chromium","appState.spec.ts","Challenge 4 - Application State","","","Validate login, profile interactions, and logout",""
+"passed","Thu Oct 16 04:05:09 GMT 2025","Thu Oct 16 04:05:19 GMT 2025","10062","chromium","interactiveLogin.spec.ts","Challenge 2 - Animated Form, Menu Interactions, and Logout","","","should handle login, menu interactions, and logout",""

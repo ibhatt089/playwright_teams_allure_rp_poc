@@ -1,0 +1,10 @@
+2025-10-16 04:05:10 [INFO]: Starting Application State test
+2025-10-16 04:05:10 [INFO]: Navigating to the App Login page
+2025-10-16 04:05:10 [INFO]: Successfully navigated to the Login page
+2025-10-16 04:05:11 [INFO]: Starting login process
+2025-10-16 04:05:11 [INFO]: Login process completed
+2025-10-16 04:05:11 [INFO]: Validating displayed user email: a@a.com
+2025-10-16 04:05:11 [INFO]: User email validated successfully
+2025-10-16 04:05:11 [INFO]: Attempting to log out
+2025-10-16 04:05:11 [INFO]: Successfully logged out
+2025-10-16 04:05:11 [INFO]: Application State test completed successfully
