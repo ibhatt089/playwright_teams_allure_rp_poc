@@ -118,6 +118,16 @@ jobs:
           REPORT_PORTAL_PROJECT: ${{ secrets.REPORT_PORTAL_PROJECT }}
           REPORT_PORTAL_LAUNCH_NAME: Playwright_Test_Launch_${{ github.run_number }}
 
+      - name: Publish Playwright Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: playwright-report
+          destination_dir: playwright-report
+          keep_files: true
+
       - name: Load test report history
         uses: actions/checkout@v4
         if: always()
@@ -142,16 +152,3 @@ jobs:
           publish_branch: gh-pages
           publish_dir: allure-history
           destination_dir: allure-report
-          keep_files: false
-          force_orphan: true
-
-      - name: Publish Playwright Report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        if: always()
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: playwright-report
-          destination_dir: playwright-report
-          keep_files: true
-
