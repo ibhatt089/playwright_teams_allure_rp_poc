@@ -1,0 +1,60 @@
+{
+    "reports": [
+        {
+            "targets": [
+                {
+                    "name": "teams",
+                    "inputs": {
+                        "url": "{TEAMS_WEBHOOK_URL}"
+                    },
+                    "extensions": [
+                        {
+                            "name": "quick-chart-test-summary"
+                        },
+                        {
+                            "name": "report-portal-history",
+                            "inputs": {
+                              "url": "{REPORT_PORTAL_BASE_URL}",
+                              "api_key": "{REPORT_PORTAL_API_KEY}",
+                              "project": "{REPORT_PORTAL_PROJECT}",
+                              "launch_name": "{REPORT_PORTAL_LAUNCH_NAME}",
+                              "history_depth": 5
+                            }
+                          },
+                        {
+                          "name": "mentions",
+                          "inputs": {
+                            "users": [
+                              {
+                                "name": "{TEAMS_USER_NAME}",
+                                "teams_upn": "{TEAMS_USER_EMAIL}"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                            "name": "ci-info"
+                        },
+                        {
+                            "name": "metadata",
+                            "inputs": {
+                              "data": [
+                                {
+                                  "key": "Browser",
+                                  "value": "Chrome"
+                                }
+                              ]
+                            }
+                          }
+                    ]
+                }
+            ],
+            "results":[
+                {
+                    "type": "junit",
+                    "files": ["test-results/playwright-report.xml"]
+                  }
+            ]
+        }
+    ]
+}

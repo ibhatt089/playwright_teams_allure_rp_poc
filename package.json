@@ -1,0 +1,51 @@
+{
+  "name": "playwright_teams_allure_rp_poc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test:chromium-headless": "playwright test --project=chromiumheadless",
+    "test": "playwright test --headed --project=chromium",
+    "postinstall": "playwright install chromium",
+    "ready": "rimraf dist node_modules package-lock.json && npm i",
+    "lint": "cross-env eslint 'tests/**/*.ts' 'playwright.config.ts'",
+    "lint:fix": "cross-env eslint 'tests/**/*.ts' 'playwright.config.ts' --fix",
+    "stop": "lsof -t -i :3000 | xargs kill -9",
+    "format": "cross-env prettier --write 'tests/**/*.ts' 'playwright.config.ts' '.eslintrc.js' '**/*.json' '**/*.md' '!package-lock.json' '!dist/**/*' '!build/**/*'",
+    "notify-teams-channel": "testbeats@latest publish -c testbeats.config.json",
+    "allure-generate": "allure generate allure-results -o allure-report --clean",
+    "allure-open": "allure open allure-report"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "keywords": ["playwright", "teams", "allure", "reportportal", "github", "pages"],
+  "author": "Ishan",
+  "license": "ISC",
+  "description": "Playwright Testing Framework with CI/CD Integration",
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@reportportal/agent-js-playwright": "^5.2.3",
+    "@reportportal/client-javascript": "^5.4.2",
+    "@types/node": "^22.18.10",
+    "@typescript-eslint/eslint-plugin": "^8.46.0",
+    "@typescript-eslint/parser": "^8.46.0",
+    "allure-playwright": "^3.4.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsdoc": "^61.1.1",
+    "eslint-plugin-playwright": "^2.2.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "lint-staged": "^16.2.4",
+    "playwright": "^1.56.0",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "testbeats": "^2.2.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "winston": "^3.18.3"
+  }
+}
